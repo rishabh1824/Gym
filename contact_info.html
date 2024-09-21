@@ -13,9 +13,9 @@
             color: white;
             margin: 0;
             padding: 0;
-            background: url('img/bg3.jpg');
+            /* background: url('img/bg3.jpg');
             background-size: 1580px 730px;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; */
            
         }
         .container {
@@ -94,9 +94,17 @@
             right: 34px;
             top: 30px;
         }
+
+        .bgimg{
+            position: fixed;
+            height: 100vh;
+            width: 100vw;
+            top: 0px;
+        }
     </style>
 </head>
 <body>
+    <img class="bgimg" src="./img/bg3.jpg">
     <header class="header">
         <div class="left">
             <img src="img/logo.jpg" alt="Gym Logo">
