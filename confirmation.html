@@ -7,28 +7,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Form Submission Confirmation</title>
     <style>
-        /* CSS Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+        }
+
         body {
             font-family: 'Baloo Bhai', cursive;
             color: white;
-            margin: 0;
-            padding: 0;
-            background: url('img/bg4\(1\).jpg');
-            background-size: 1580px 730px;
-            background-repeat: no-repeat;
+            background: url('img/bg4(1).png') no-repeat center center fixed;
+            background-size: cover;
             text-align: center;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
-        .container {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 50px;
-            border-radius: 10px;
+
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
         }
-        .container h1 {
-            margin-bottom: 20px;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .left {
+            display: flex;
+            align-items: center;
+        }
+        .left img {
+            width: 50px;
+            margin-right: 10px;
+        }
+        .right {
+            display: flex;
+            gap: 10px;
         }
         .btn {
             border: 2px solid white;
@@ -38,28 +67,40 @@
             color: white;
             cursor: pointer;
             text-decoration: none;
-            margin-top: 20px;
         }
         .btn:hover {
             background-color: grey;
         }
-        .left {
-            display: inline-block;
-            position: absolute;
-            left: 34px;
-            top: 30px;
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 50px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 600px;
+            box-sizing: border-box;
         }
-        .left img {
-            width: 65px;
+        .container h1 {
+            margin-bottom: 20px;
         }
-        .right {
-            position: absolute;
-            right: 34px;
-            top: 30px;
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 10px;
+            }
+            .left {
+                justify-content: center;
+                margin-bottom: 10px;
+            }
+            .right {
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
+    <div class="overlay"></div>
     <header class="header">
         <div class="left">
             <img src="img/logo.jpg" alt="Gym Logo">
@@ -68,7 +109,6 @@
         <div class="right">
             <button class="btn" onclick="window.location.href='tel:+911234567890'">Call us Now</button>
             <button class="btn" onclick="window.location.href='mailto:info@rishabhgym.com'">Email Us</button>
-
         </div>
     </header>
     <div class="container">
@@ -79,4 +119,6 @@
         <button class="btn" onclick="location.href='index.html'">Go to Home</button>
     </div>
 </body>
+
 </html>
+
