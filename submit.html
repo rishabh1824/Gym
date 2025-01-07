@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gym new Plans</title>
+    <title>Gym New Plans</title>
     <style>
-        /* CSS Reset */
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
-            overflow: hidden;
         }
 
         body {
@@ -22,12 +20,78 @@
             background-size: cover;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+        }
+
+        .left img {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .mid {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: medium;
+        }
+
+        .navbar li a:hover,
+        .navbar li a.active {
+            color: grey;
+            text-decoration: underline;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
         .container {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            height: 100vh;
+            flex-wrap: wrap;
+            padding: 120px 20px 0; /* Adjusted for header height */
             text-align: center;
+            gap: 20px;
         }
 
         .plan {
@@ -37,6 +101,7 @@
             padding: 20px;
             width: 250px;
             margin: 20px;
+            text-align: center;
         }
 
         .plan h2 {
@@ -67,53 +132,35 @@
             background-color: grey;
         }
 
-        .left {
-            display: inline-block;
-            position: absolute;
-            left: 34px;
-            top: 30px;
-        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
 
-        .left img {
-            width: 65px;
-        }
+            .navbar {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 10px 0;
+            }
 
-        .mid {
-            display: block;
-            width: 35%;
-            margin: 30px auto;
-            text-align: center;
-        }
+            .navbar.active {
+                display: flex;
+            }
 
-        .navbar {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
+            .container {
+                flex-direction: column;
+                padding: 140px 10px 0;
+            }
 
-        .navbar li {
-            margin: 0 15px;
-            font-size: larger;
-        }
-
-        .navbar li a {
-            color: white;
-            text-decoration: none;
-            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            font-size: larger;
-        }
-
-        .navbar li a:hover, .navbar li a.active {
-            color: grey;
-            text-decoration: underline;
-        }
-
-        .right {
-            position: absolute;
-            right: 34px;
-            top: 30px;
+            .plan {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -124,6 +171,11 @@
             <img src="img/logo.jpg" alt="Gym Logo">
             <div>Rishabh's GYM</div>
         </div>
+        <div class="hamburger" onclick="toggleNavbar()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
         <div class="mid">
             <ul class="navbar">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -131,10 +183,6 @@
                 <li><a href="fitness.html">Fitness Calculator</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
-        </div>
-        <div class="right">
-            <button class="btn" onclick="window.location.href='tel:+911234567890'">Call us Now</button>
-            <button class="btn" onclick="window.location.href='mailto:info@rishabhgym.com'">Email Us</button>
         </div>
     </header>
     <div class="container">
@@ -160,6 +208,13 @@
             <button class="btn" onclick="location.href='contact_info.html'">Select</button>
         </div>
     </div>
+
+    <script>
+        function toggleNavbar() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('active');
+        }
+    </script>
 </body>
 
 </html>
