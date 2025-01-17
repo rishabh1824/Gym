@@ -109,6 +109,11 @@
             background-color: white;
             margin: 4px 0;
         }
+        .navbar.active {
+            display: block;
+            flex-direction: column;
+            text-align: center;
+        }
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
@@ -116,17 +121,12 @@
             .navbar {
                 display: none;
                 flex-direction: column;
-                text-align: center;
+                
             }
             .navbar.active {
                 display: flex;
             }
-            .left {
-                text-align: center;
-            }
-            .mid {
-                display: none;
-            }
+            
             .right {
                 display: none;
             }
